@@ -1,8 +1,12 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("../culture/sync", __FILE__)
+#require File.expand_path("../culture/sync", __FILE__)
+
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'celluloid/io/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "celluloid-io"
+  gem.name          = "ayudo-celluloid-io"
   gem.version       = Celluloid::IO::VERSION
   gem.license       = "MIT"
   gem.authors       = ["Tony Arcieri", "Donovan Keme"]
@@ -16,9 +20,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   gem.require_paths = ["lib"]
 
-  Celluloid::Sync::Gemspec[gem]
-
   gem.add_dependency "nio4r", ">= 1.1"
-
   gem.add_development_dependency "rb-fsevent", "~> 0.9.1" if RUBY_PLATFORM =~ /darwin/
 end
