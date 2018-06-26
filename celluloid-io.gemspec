@@ -6,7 +6,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'celluloid/io/version'
 
 Gem::Specification.new do |gem|
-  gem.name          = "ayudo-celluloid-io"
+  gem.name          = "celluloid-io"
   gem.version       = Celluloid::IO::VERSION
   gem.license       = "MIT"
   gem.authors       = ["Tony Arcieri", "Donovan Keme"]
