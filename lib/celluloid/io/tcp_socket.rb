@@ -114,6 +114,7 @@ module Celluloid
         end
 
         socket = Socket.new(family, Socket::SOCK_STREAM, 0)
+        socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEPORT, true)
         socket.bind Addrinfo.tcp(local_host, local_port) if local_host
 
         begin
