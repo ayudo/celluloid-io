@@ -13,6 +13,8 @@ module Celluloid
       def initialize(socket)
         case socket
         when ::BasicSocket, OpenSSL::SSL::SSLSocket
+          socket.setsockopt(Socket::SOL_SOCKET, Socket::SO_REUSEPORT, true)
+          puts "--> socket: #{socket.inspect}"
           @socket = socket
         else
           raise ArgumentError, "expected a socket, got #{socket.inspect}"
